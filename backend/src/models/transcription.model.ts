@@ -14,7 +14,7 @@ const TranscriptionSchema = new Schema<ITranscription>({
   createdAt: { type: Date, default: () => new Date(), index: true }
 });
 
-// create index on createdAt for queries (good for time-range queries)
+// create index on createdAt for queries
 TranscriptionSchema.index({ createdAt: 1 });
 
 export const TranscriptionModel = mongoose.model<ITranscription>('Transcription', TranscriptionSchema);

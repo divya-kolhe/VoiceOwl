@@ -8,7 +8,7 @@ export interface CreateTranscriptionDTO {
 
 export class TranscriptionService {
   static async create(dto: CreateTranscriptionDTO): Promise<ITranscription> {
-    // Try to download (mocked) with retry
+    // Try to download with retry
     const audioBuffer = await retry(() => mockDownloadAudio(dto.audioUrl), 3, 200);
 
     // "Transcribe" - MOCK
@@ -21,7 +21,6 @@ export class TranscriptionService {
       createdAt: new Date()
     });
 
-    // Return the saved doc
     return doc;
   }
 
